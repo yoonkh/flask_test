@@ -4,9 +4,9 @@ app = Flask(__name__)
 
 # need packeges : templates, static
 
-@app.route('/profile/<name>')
-def profileWithTemplate(name):
-    return render_template('profile.html', name=name)
+@app.route('/layout/')
+def profileWithTemplate():
+    return render_template('layout_1.html')
 
 
 if __name__ == '__main__':
