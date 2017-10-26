@@ -4,6 +4,8 @@ reated by https://www.gitignore.io/api/macos,python,pycharm
 *.DS_Store
 .AppleDouble
 .LSOverride
+*.idea 
+
 
 # Icon must end with two \r
 Icon
