@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>test yoon!!!!!!!!!!!</h1>
+    {% if name %}
+        <h1>test!! {{ name }}!</h1>
+    {% else %}
+        <h1>Testing!!!</h1>
+    {% endif %}
 </body>
 </html>
