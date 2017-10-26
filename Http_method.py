@@ -1,5 +1,7 @@
 from flask import Flask, request, app
 
+app = Flask(__name__)
+
 
 ## HTTP method : import request
 
@@ -15,3 +17,7 @@ def bacon():
 
     else:
         return 'You are probably using GET'
+
+
+if __name__ == '__main__':
+    app.run()
