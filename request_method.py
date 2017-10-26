@@ -14,3 +14,7 @@ def login():
             error = 'Invalid username/password'
     # 아래의 코드는 요청이 GET 이거나, 인증정보가 잘못됐을때 실행된다.
     return render_template('login.html', error=error)
+
+
+if __name__ == '__main__':
+    app.run()
