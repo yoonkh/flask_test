@@ -1,6 +1,8 @@
 from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 
 
 # from flask.ext.script import Manager
@@ -56,9 +58,13 @@ app = Flask(__name__)
 # def variable(username):
 #     return render_template('test.html', username=username)
 
-@app.route('/user/<user>')
-def user(user):
-    return render_template('test.html', user=user)
+# @app.route('/user/comment/')
+# def comments():
+#     return 'comment_set'
+#
+@app.route('/')
+def user():
+    return render_template('user.html')
 
 
 if __name__ == '__main__':

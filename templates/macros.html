@@ -5,22 +5,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
+    <title>Document</title>
 </head>
 <body>
-    {% if user %}
-        <h1>test!! {{ user }}!</h1>
-    {% else %}
-        <h1>Testing!!!</h1>
-    {% endif %}
+    {% macro render_comment(comment) %}
+        <li>{{ comment }}</li>
+    {% endmacro %}
 
-
-        <ul>
+    <ul>
         {% for comment in comments %}
-            <li>{{ comment }}</li>
+            {{ render_comment(comment) }}
         {% endfor %}
-        </ul>
-
-
+    </ul>
 </body>
 </html>
