@@ -23,10 +23,12 @@ app = Flask(__name__)
 # @app.route('/test')
 # def test():
 #     return 'Testing'
-
+#
 # @app.route('/user/<username>')
 # def show_user_profile(username):
 #     return 'User %s' % username
+
+
 #
 #
 # @app.route('/post/<int:post_id>')
@@ -45,14 +47,18 @@ app = Flask(__name__)
 # @app.route('/')
 # def index():
 #     return '<h1>test</h1>'
-@app.route('/index')
-def index():
-    return render_template('index.html')
+# @app.route('/user')
+# def user():
+#     return render_template('user.html')
+#
+#
+# @app.route('/test/<username>')
+# def variable(username):
+#     return render_template('test.html', username=username)
 
-
-@app.route('/user/<name>')
-def user(name):
-    return render_template('user.html', name=name)
+@app.route('/user/<user>')
+def user(user):
+    return render_template('test.html', user=user)
 
 
 if __name__ == '__main__':
