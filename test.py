@@ -34,8 +34,10 @@ app = Flask(__name__)
 # def about():
 #     return 'The about page'
 
-
+@app.route('/')
+def index():
+    return '<h1>test</h1>'
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
