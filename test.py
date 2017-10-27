@@ -9,16 +9,16 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import Required
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess string'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 manager = Manager(app)
-
-app.config['SECRET_KEY'] = 'hard to guess string'
 
 
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required()])
     submit = SubmitField('Submit')
+
 
 # from flask.ext.script import Manager
 # from flask import Flask
@@ -77,9 +77,18 @@ class NameForm(Form):
 # def comments():
 #     return 'comment_set'
 #
-@app.route('/')
+# @app.route('/')
+# def index():
+#     return render_template('index.html', current_time=datetime.utcnow())
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', current_time=datetime.utcnow())
+    name = None
+    form = NameForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        form.name.data = ''
+    return render_template('index.html', form=form, name=name)
 
 
 @app.errorhandler(404)
