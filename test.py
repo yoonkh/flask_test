@@ -63,8 +63,8 @@ bootstrap = Bootstrap(app)
 #     return 'comment_set'
 #
 @app.route('/')
-def user():
-    return render_template('user.html')
+def base():
+    return render_template('base.html')
 
 
 @app.errorhandler(404)
