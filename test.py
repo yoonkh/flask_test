@@ -1,8 +1,9 @@
-from flask import Flask
 from flask.ext.script import Manager
+from flask import Flask
 
 app = Flask(__name__)
-Manager = Manager(app)
+
+manager = Manager(app)
 
 
 # @app.route('/')
@@ -36,10 +37,10 @@ Manager = Manager(app)
 # def about():
 #     return 'The about page'
 
-@app.route('/')
-def index():
-    return '<h1>test</h1>'
+# @app.route('/')
+# def index():
+#     return '<h1>test</h1>'
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    manager.run()
