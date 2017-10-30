@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
+from flask_migrate import MigrateCommand, Migrate
 from flask_script import Manager, Shell
 from flask_moment import Moment
 from datetime import datetime
@@ -26,7 +27,8 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 manager = Manager(app)
-
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required()])
