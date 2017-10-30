@@ -17,7 +17,7 @@ from flask_sqlalchemy import SQLAlchemy
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = \
+app.config['SQLALCHEMY_DATABASE_URI'] =\
     'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 
@@ -29,6 +29,7 @@ moment = Moment(app)
 manager = Manager(app)
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
+
 
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required()])
@@ -147,8 +148,9 @@ def internal_server_error(e):
 
 def make_shell_context():
     return dict(app=app, db=db, User=User, Role=Role)
-manager.add_command("shell", Shell(make_context=make_shell_context))
 
+
+manager.add_command("shell", Shell(make_context=make_shell_context))
 
 if __name__ == '__main__':
     manager.run()
